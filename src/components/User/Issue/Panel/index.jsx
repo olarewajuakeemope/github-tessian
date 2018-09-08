@@ -7,11 +7,11 @@ import { getDimension } from 'utils'
 import './style.css'
 
 const renderLoaderEl = () => (
-  <div key={v1()} className="userCommitsPanel__item">
-    <h5 className="loading__background commit__message" />
-    <h5 className="loading__background commit__url" />
-    <h5 className="loading__background commit__author" />
-    <h5 className="loading__background commit__date" />
+  <div key={v1()} className="userissuesPanel__item">
+    <h5 className="loading__background issue__message" />
+    <h5 className="loading__background issue__url" />
+    <h5 className="loading__background issue__author" />
+    <h5 className="loading__background issue__date" />
   </div>
 )
 
@@ -77,13 +77,13 @@ class Panel extends PureComponent {
     const { issues } = this.state
     const { title, date, url, author_name } = issues[index]
     return (
-      <div key={key} style={style} className="userCommitsPanel__item">
-        <h5 className="commit__message">{title}</h5>
-        <h5 className="commit__url">
+      <div key={key} style={style} className="userissuesPanel__item">
+        <h5 className="issue__message">{title}</h5>
+        <h5 className="issue__url">
           <a href={url} target="_blank">Url</a>
         </h5>
-        <h5 className="commit__author">{author_name}</h5>
-        <h5 className="commit__date">{date}</h5>
+        <h5 className="issue__author">{author_name}</h5>
+        <h5 className="issue__date">{date}</h5>
     </div>
     )
   }
@@ -96,7 +96,7 @@ class Panel extends PureComponent {
         <h4 className="repo_description">
           {this.renderRepoDescription()}
         </h4>
-        <div className="userCommitsPanelItems__wrapper">
+        <div className="userissuesPanelItems__wrapper">
           <h2>{issues.length} Issues</h2>
           {isLoading ? this.renderLoaders() :
             <List
@@ -115,7 +115,7 @@ class Panel extends PureComponent {
   render() {
     const { hasSelected } = this.props
     return (
-      <div className="userCommits__panel">
+      <div className="userissues__panel">
         {hasSelected ? this.renderIssues() : this.renderEmpty()}
       </div>
     )

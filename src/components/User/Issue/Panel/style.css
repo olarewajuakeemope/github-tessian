@@ -1,4 +1,4 @@
-.userCommits__panel {
+.userissues__panel {
   display: inline-block;
   height: 100%;
   width: 75%;
@@ -9,7 +9,7 @@
   background-color: #eee;
 }
 
-.userCommits__panel .empty {
+.userissues__panel .empty {
   width: 100%;
   height: 100%;
   display: flex;
@@ -18,7 +18,7 @@
   align-items: center;
 }
 
-.userCommits__panel > h4 {
+.userissues__panel > h4 {
   width: 100%;
   padding: 2%;
   z-index: 1;
@@ -27,7 +27,7 @@
   border-bottom: 1px solid #aaa;
 }
 
-.userCommits__panel > h2 {
+.userissues__panel > h2 {
   width: 100%;
   padding: 2%;
 }
@@ -40,21 +40,21 @@
   color: #999;
 }
 
-.commit__message,
-.commit__author,
-.commit__date,
-.commit__url {
+.issue__message,
+.issue__author,
+.issue__date,
+.issue__url {
   vertical-align: middle;
   padding-bottom: 1%;
 }
 
-.userCommitsPanelItems__wrapper {
+.userissuesPanelItems__wrapper {
   width: 100%;
   padding-left: 3%;
   margin: 10% 0 20% 0;
 }
 
-.userCommitsPanel__item {
+.userissuesPanel__item {
   width: 100%;
   padding: 2%;
   height: 200px;
@@ -62,28 +62,28 @@
   border-bottom: 2px solid #ddd;
 }
 
-.userCommitsPanel__item h5 {
+.userissuesPanel__item h5 {
   margin: 1%;
 }
 
-.commit__message {
+.issue__message {
   width: 90%;
 }
 
-.commit__url {
+.issue__url {
   width: 5%;
 }
 
-.commit__author {
+.issue__author {
   color: darkgoldenrod;
 }
 
-.commit__date {
+.issue__date {
   color: #aaa;
 }
 
-.commit__author,
-.commit__date {
+.issue__author,
+.issue__date {
   width: 50%;
 }
 
@@ -95,26 +95,26 @@
 
 
 @media (max-width: 1000px) {
-  .userCommitsPanelItems__wrapper {
+  .userissuesPanelItems__wrapper {
     margin-top: 15%;
   }
 
-  .userCommits__panel {
+  .userissues__panel {
     margin-top: 5%;
   }
 }
 
 @media (max-width: 700px) {
-  .userCommits__panel {
+  .userissues__panel {
     margin-top: 7%;
   }
-  .userCommitsPanelItems__wrapper {
+  .userissuesPanelItems__wrapper {
     margin-top: 20%;
   }
 }
 
 @media (max-width: 600px) {
-  .userCommits__panel {
+  .userissues__panel {
     margin-top: 9%;
   }
 }

@@ -5,7 +5,7 @@ import { v1 } from 'uuid'
 import './style.css'
 
 const loaderTemplate = () => (
-  <div key={v1()} className="userCommitsSidebar__item">
+  <div key={v1()} className="userissuesSidebar__item">
     <h5 className="loading__background repo__name" />
     <p className="loading__background repo__status" />
     <p className="loading__background repo__url" />
@@ -43,7 +43,7 @@ class Sidebar extends PureComponent {
         key={key}
         style={style}
         data-id={`${index}`}
-        className="userCommitsSidebar__item"
+        className="userissuesSidebar__item"
         onClick={(e) => this.handleClick(e, name, description, index)}
       >
         <h5 className="repo__name">{name}</h5>
@@ -67,9 +67,9 @@ class Sidebar extends PureComponent {
   render() {
     const { isLoading, repos } = this.props
     return (
-      <div className="userCommits__sidebar">
+      <div className="userissues__sidebar">
         <h2>{repos.length} Repos</h2>
-        <div className="userCommitsSidebarItem__wrapper">
+        <div className="userissuesSidebarItem__wrapper">
           {isLoading ?
             this.renderLoaders() :
             <List

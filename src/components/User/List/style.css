@@ -46,7 +46,7 @@
   font-size: 150%;
 }
 
-.userListItem__commit a {
+.userListItem__issue a {
   color: purple;
   font-size: 80%;
   font-weight: bold;

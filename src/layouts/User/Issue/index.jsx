@@ -5,9 +5,9 @@ import PanelContainer from 'containers/User/Issue/Panel'
 import './style.css'
 
 const Issue = () => (
-  <div className="userCommits__wrapper">
+  <div className="userissues__wrapper">
     <HeaderContainer />
-    <div className="userCommits__panelWrapper">
+    <div className="userissues__panelWrapper">
       <SidebarContainer />
       <PanelContainer />
     </div>
