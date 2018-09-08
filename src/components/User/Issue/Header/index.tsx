@@ -6,10 +6,10 @@ import './style.css'
 interface HeaderWrapperPropsInterface {
   goBack: any
   user: string
-  commits: Array<null | {}>
+  issues: Array<null | {}>
 }
 
-const HeaderWrapper = ({ goBack, commits, user }: HeaderWrapperPropsInterface) => {
+const HeaderWrapper = ({ goBack, issues, user }: HeaderWrapperPropsInterface) => {
   const backButton = (
     <span key="backButton" onClick={goBack} className="header__backbutton" />
   )
@@ -21,10 +21,10 @@ const HeaderWrapper = ({ goBack, commits, user }: HeaderWrapperPropsInterface) =
   const filterInput = (
     <span key="filterInput" className="filterInput">
       <Search
-        name="commit"
+        name="issue"
         className="headerInput__filter"
-        placeholder="Filter commit message"
-        disabled={commits.length < 1}
+        placeholder="Filter issues title"
+        disabled={issues.length < 1}
       />
     </span>
   )

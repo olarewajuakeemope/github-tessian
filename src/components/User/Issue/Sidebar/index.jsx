@@ -12,7 +12,7 @@ const loaderTemplate = () => (
   </div>
 )
 
-class Commit extends PureComponent {
+class Sidebar extends PureComponent {
   renderLoaders = () => {
     let i = 5
     const loaders = []
@@ -24,13 +24,13 @@ class Commit extends PureComponent {
   }
 
   handleClick = (e, name, description, index) => {
-    const { getCommits } = this.props
+    const { getIssues } = this.props
     const currAcitve = document.querySelector('.active')
     if (currAcitve) {
       currAcitve.classList.remove('active')
     }
     e.target.classList.add('active')
-    getCommits(name, description)
+    getIssues(name, description)
     this.activeIndex = index
   }
 
@@ -88,10 +88,10 @@ class Commit extends PureComponent {
   }
 }
 
-Commit.propTypes = {
+Sidebar.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   repos: PropTypes.array.isRequired,
-  getCommits: PropTypes.func.isRequired,
+  getIssues: PropTypes.func.isRequired,
 }
 
-export default Commit
+export default Sidebar

@@ -44,7 +44,7 @@ class UserList extends PureComponent {
             <span className="value">{score}</span>
             <span className="text"> scores</span></p>
           <p className="userListItem__commit">
-            <Link to={`/users/commits/${login}`}>View commits</Link>
+            <Link to={`/users/issues/${login}`}>View issues</Link>
           </p>
         </div>
       </div>

@@ -15,11 +15,11 @@ const renderLoaderEl = () => (
   </div>
 )
 
-class Commit extends PureComponent {
+class Panel extends PureComponent {
   state = {
     width: getDimension('width', 200, 200),
     rowHeight: getDimension('height', 200, 200),
-    commits: [],
+    issues: [],
   }
 
   resizeDimensions = () => {
@@ -31,9 +31,9 @@ class Commit extends PureComponent {
 
   static getDerivedStateFromProps(nextProps) {
     const pattern = new RegExp(lodash.escapeRegExp(nextProps.filter), 'i')
-    const isMatch = (result => pattern.test(result.message))
+    const isMatch = (result => pattern.test(result.title))
     return {
-      commits: lodash.filter(nextProps.commits, isMatch),
+      issues: lodash.filter(nextProps.issues, isMatch),
     }
   }
 
@@ -74,13 +74,13 @@ class Commit extends PureComponent {
   )
 
   rowRenderer = ({ index, key, style }) => {
-    const { commits } = this.state
-    const { message, date, commit_url, author_name } = commits[index]
+    const { issues } = this.state
+    const { title, date, url, author_name } = issues[index]
     return (
       <div key={key} style={style} className="userCommitsPanel__item">
-        <h5 className="commit__message">{message}</h5>
+        <h5 className="commit__message">{title}</h5>
         <h5 className="commit__url">
-          <a href={commit_url} target="_blank">Url</a>
+          <a href={url} target="_blank">Url</a>
         </h5>
         <h5 className="commit__author">{author_name}</h5>
         <h5 className="commit__date">{date}</h5>
@@ -88,24 +88,24 @@ class Commit extends PureComponent {
     )
   }
 
-  renderCommits = () => {
+  renderIssues = () => {
     const { isLoading } = this.props
-    const { width, rowHeight, commits } = this.state
+    const { width, rowHeight, issues } = this.state
     return (
       <Fragment>
         <h4 className="repo_description">
           {this.renderRepoDescription()}
         </h4>
         <div className="userCommitsPanelItems__wrapper">
-          <h2>{commits.length} Commits</h2>
+          <h2>{issues.length} Issues</h2>
           {isLoading ? this.renderLoaders() :
             <List
               width={width}
               rowHeight={rowHeight}
               style={{ outline: 0 }}
-              rowCount={commits.length}
+              rowCount={issues.length}
               rowRenderer={this.rowRenderer}
-              height={rowHeight * Math.min(20, commits.length)}
+              height={rowHeight * Math.min(20, issues.length)}
             />}
         </div>
       </Fragment>
@@ -116,18 +116,22 @@ class Commit extends PureComponent {
     const { hasSelected } = this.props
     return (
       <div className="userCommits__panel">
-        {hasSelected ? this.renderCommits() : this.renderEmpty()}
+        {hasSelected ? this.renderIssues() : this.renderEmpty()}
       </div>
     )
   }
 }
 
-Commit.propTypes = {
+Panel.defaultProps = {
+  filter: '',
+}
+
+Panel.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   hasSelected: PropTypes.bool.isRequired,
-  filter: PropTypes.string.isRequired,
-  commits: PropTypes.array.isRequired,
+  filter: PropTypes.string,
+  issues: PropTypes.array.isRequired,
   description: PropTypes.string,
 }
 
-export default Commit
+export default Panel

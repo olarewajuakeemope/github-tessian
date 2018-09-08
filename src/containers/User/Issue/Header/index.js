@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
-import Header from 'components/User/Commit/Header'
+import Header from 'components/User/Issue/Header'
 import { goBack } from 'redux/user/actions'
-import { commitSearchForm } from 'redux/forms'
-import { getCurrUser, getCommits } from 'redux/commit/selectors'
+import { issueSearchForm } from 'redux/forms'
+import { getCurrUser, getIssues } from 'redux/issue/selectors'
 
 const mapDispatchToProps = {
   goBack,
@@ -12,7 +12,7 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => {
   return {
     user: getCurrUser(state),
-    commits: getCommits(state),
+    issues: getIssues(state),
   }
 }
 
@@ -24,8 +24,8 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   }
 }
 
-const CommitSearchForm = reduxForm({
-  form: commitSearchForm.name,
+const IssueSearchForm = reduxForm({
+  form: issueSearchForm.name,
 })(Header)
 
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(CommitSearchForm)
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(IssueSearchForm)

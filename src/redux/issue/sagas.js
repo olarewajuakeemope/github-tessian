@@ -1,11 +1,11 @@
 import { takeEvery, all, select, fork, put, call } from 'redux-saga/effects'
 import { LOCATION_CHANGE } from 'react-router-redux'
 import { matchAiParams } from 'redux/history'
-import { getCurrUser } from 'redux/commit/selectors'
-import { getRepos, getCommits } from 'api'
+import { getCurrUser } from 'redux/issue/selectors'
+import { getRepos, getIssues } from 'api'
 import t from './types'
 
-function* commitRouteSaga() {
+function* issueRouteSaga() {
   const { user } = matchAiParams()
   if (user) {
     yield put({ type: t.SET_CURRENT_REPO, repo: null })
@@ -20,27 +20,27 @@ function* commitRouteSaga() {
   }
 }
 
-function* commitSaga({ repo }) {
+function* issueSaga({ repo }) {
   const user = yield select(getCurrUser)
   try {
-    const commits = yield call(getCommits, user, repo)
-    yield put({ type: t.GET_COMMITS_SUCCESS, commits })
+    const issues = yield call(getIssues, user, repo)
+    yield put({ type: t.GET_ISSUES_SUCCESS, issues })
   } catch (error) {
-    yield put({ type: t.GET_COMMITS_ERROR, error })
+    yield put({ type: t.GET_ISSUES_ERROR, error })
   }
 }
 
-function* watchCommitRouteSaga() {
-  yield takeEvery(LOCATION_CHANGE, commitRouteSaga)
+function* watchIssueRouteSaga() {
+  yield takeEvery(LOCATION_CHANGE, issueRouteSaga)
 }
 
-function* watchCommitRequestSaga() {
-  yield takeEvery(t.GET_COMMITS_REQUEST, commitSaga)
+function* watchIssueRequestSaga() {
+  yield takeEvery(t.GET_ISSUES_REQUEST, issueSaga)
 }
 
 export default function* () {
   yield all([
-    fork(watchCommitRouteSaga),
-    fork(watchCommitRequestSaga),
+    fork(watchIssueRouteSaga),
+    fork(watchIssueRequestSaga),
   ])
 }

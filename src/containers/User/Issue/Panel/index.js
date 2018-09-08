@@ -1,22 +1,22 @@
 import { connect } from 'react-redux'
-import Panel from 'components/User/Commit/Panel'
+import Panel from 'components/User/Issue/Panel'
 import { formValueSelector } from 'redux-form'
-import { commitSearchForm } from 'redux/forms'
+import { issueSearchForm } from 'redux/forms'
 import {
-  isLoadingCommits,
-  getCommits,
+  isLoadingIssues,
+  getIssues,
   getActiveRepo,
   getActiveRepoDescription,
-} from 'redux/commit/selectors'
+} from 'redux/issue/selectors'
 
-const filterSelector = formValueSelector(commitSearchForm.name)
+const filterSelector = formValueSelector(issueSearchForm.name)
 
 const mapStateToProps = (state) => {
-  const filter = filterSelector(state, 'commit')
+  const filter = filterSelector(state, 'issue')
   return {
     filter,
-    commits: getCommits(state),
-    isLoading: isLoadingCommits(state),
+    issues: getIssues(state),
+    isLoading: isLoadingIssues(state),
     hasSelected: !!getActiveRepo(state),
     description: getActiveRepoDescription(state),
   }

@@ -1,14 +1,14 @@
 import types from './types'
 
-export interface CommitState {
+export interface IssueState {
   user: string
   error: string
   activeRepo: null | string
   activeRepoDescription: string
   isLoadingRepos: boolean
-  isLoadingCommits: boolean
+  isLoadingIssues: boolean
   repos: Array<null | {}>
-  commits: Array<null | {}>
+  issues: Array<null | {}>
 }
 
 export interface SetCurrUser {
@@ -33,21 +33,21 @@ export interface GetReposError {
   error: string
 }
 
-export interface GetCommitsRequest {
-  type: types.GET_COMMITS_REQUEST
+export interface GetIssuesRequest {
+  type: types.GET_ISSUES_REQUEST
   repo: string
   description: string
 }
 
-export interface GetCommitsSuccess {
-  type: types.GET_COMMITS_SUCCESS
-  commits: {
+export interface GetIssuesSuccess {
+  type: types.GET_ISSUES_SUCCESS
+  issues: {
     data: Array<null | {}>
   }
 }
 
-export interface GetCommitsError {
-  type: types.GET_COMMITS_ERROR
+export interface GetIssuesError {
+  type: types.GET_ISSUES_ERROR
   error: string
 }
 
@@ -55,6 +55,6 @@ export type UserInterfaces = SetCurrUser
  | SetCurrRepo
  | GetReposSuccess
  | GetReposError
- | GetCommitsRequest
- | GetCommitsSuccess
- | GetCommitsError
+ | GetIssuesRequest
+ | GetIssuesSuccess
+ | GetIssuesError

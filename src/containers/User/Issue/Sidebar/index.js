@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
-import { isLoadingRepos, getRepos } from 'redux/commit/selectors'
-import { getCommits } from 'redux/commit/actions'
-import Sidebar from 'components/User/Commit/Sidebar'
+import { isLoadingRepos, getRepos } from 'redux/issue/selectors'
+import { getIssues } from 'redux/issue/actions'
+import Sidebar from 'components/User/Issue/Sidebar'
 
 const mapDispatchToProps = {
-  getCommits,
+  getIssues,
 }
 
 const mapStateToProps = (state) => {

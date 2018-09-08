@@ -10,6 +10,6 @@ export function getRepos (user: string) {
   return fetchRequest(`/users/${user}/repos`, 'get')
 }
 
-export function getCommits (user: string, repo: string) {
-  return fetchRequest(`/repos/${user}/${repo}/commits`, 'get')
+export function getIssues (user: string, repo: string) {
+  return fetchRequest(`/repos/${user}/${repo}/issues`, 'get')
 }

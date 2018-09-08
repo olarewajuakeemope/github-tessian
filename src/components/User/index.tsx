@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import UserSearch from 'containers/User/Search'
 import Loading from 'components/Common/Loading'
 import UserListContainer from 'containers/User/List'
-import CommitLayout from 'layouts/User/Commit'
+import IssuesLayout from 'layouts/User/Issue'
 import './style.css'
 
 interface MatchProps {
@@ -23,7 +23,7 @@ const User = ({ loading, match: { path } }: UserPropsInterface) => {
             <UserSearch/>
           </div>
           <Switch>
-            <Route component={CommitLayout} path={`${path}/commits/:user`} />
+            <Route component={IssuesLayout} path={`${path}/issues/:user`} />
             <Route component={UserListContainer} />
           </Switch>
         </div>

@@ -3,7 +3,7 @@ import { matchPath } from 'react-router-dom'
 
 const history = createHistory()
 
-const allParams = '/users/commits/:user?'
+const allParams = '/users/issues/:user?'
 
 interface AiParams {
   user?: string,

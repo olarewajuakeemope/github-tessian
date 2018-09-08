@@ -2,20 +2,20 @@ import { combineReducers } from 'redux'
 import { reducer as form } from 'redux-form'
 import { routerReducer as router } from 'react-router-redux'
 import user from 'redux/user/reducer'
-import commit from 'redux/commit/reducer'
+import issue from 'redux/issue/reducer'
 import { UserState } from 'redux/user/interfaces'
-import { CommitState } from 'redux/commit/interfaces'
+import { IssueState } from 'redux/issue/interfaces'
 
 export interface RootReducerInterface {
   router: {},
   form: {},
   user: UserState,
-  commit: CommitState,
+  issue: IssueState,
 }
 
 export default combineReducers<RootReducerInterface>({
   router,
   user,
-  commit,
+  issue,
   form,
 })
