@@ -1,0 +1,119 @@
+{
+  "extends": [
+    "tslint-eslint-rules"
+  ],
+  "rules": {
+    // unimplemented eslint rules
+    "curly": true,
+    "eofline": true,
+    "import/no-duplicates": false,
+    "no-arg": true,
+    "no-conditional-assignment": true,
+    "no-consecutive-blank-lines": true,
+    "no-eval": true,
+    "no-extra-semi": true,
+    "no-inner-declarations": true,
+    "no-invalid-regexp": true,
+    "no-irregular-whitespace": true,
+    "block-spacing": true,
+    "array-bracket-spacing": [true, "never"],
+    "no-regex-spaces":  true,
+    "no-sparse-arrays": true,
+    "no-unexpected-multiline": true,
+    "valid-typeof": true,
+    "no-duplicate-variable": true,
+    "no-prototype-builtins": false,
+    "no-template-curly-in-string": false,
+    "no-unreachable": false,
+    "no-unused-expression": false,
+//    https://github.com/Realytics/fork-ts-checker-webpack-plugin/issues/74
+//    "no-unused-variable": true,
+    "no-unsafe-negation": false,
+    "no-use-before-define": false,
+    "no-unsafe-finally": true,
+    "no-duplicate-case": true,
+    "no-control-regex": true,
+    "no-ex-assign": true,
+    "no-extra-boolean-cast": true,
+    "no-use-before-declare": true,
+    "use-isnan": true,
+    "eol-last": false,
+    "no-console": [true, "log"],
+    "no-debugger": true,
+    "no-empty": true,
+    "label-position": true,
+    "no-negated-condition": false,
+    "no-nested-ternary": false,
+    "no-tabs": false,
+    "no-var-keyword": true,
+    "no-switch-case-fall-through": true,
+    "no-trailing-spaces": false,
+    "no-string-throw": true,
+    "object-literal-shorthand": true,
+    "one-variable-per-declaration": true,
+    "prefer-const": true,
+    "space-infix-ops": false,
+    "react/no-multi-comp": false,
+    "react/no-unknown-property": false,
+    "react/prefer-stateless-function": false,
+    "react/react-in-jsx-scope": false,
+    "react/require-render-return": false,
+    "react/jsx-key": false,
+    "react/jsx-no-target-blank": false,
+    "react/jsx-no-undef": false,
+    "react/jsx-uses-react": false,
+    "react/jsx-uses-vars": false,
+    "compat/compat": false,
+    "import/newline-after-import": false,
+    // replacements for some unimplemented rules
+    "no-duplicate-imports": true,
+    "indent": true,
+    "no-trailing-whitespace": true,
+    "trailing-comma": [
+      true,
+      {
+        "multiline": {
+          "objects": "always",
+          "arrays": "always",
+          "functions": "never",
+          "typeLiterals": "ignore"
+        }
+      }
+    ],
+    // cw rules
+    "semicolon": false,
+    "object-literal-sort-keys": false,
+    "object-literal-key-quotes": [
+      true,
+      "as-needed"
+    ],
+    "member-access": false,
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double"
+    ],
+    "ordered-imports": false,
+    "no-var-requires": false,
+    "variable-name": false,
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "whitespace": [
+      true,
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type",
+      "check-type-operator"
+    ]
+  },
+  "linterOptions": {
+    "exclude": [
+      "node_modules",
+      "**/*.js"
+    ]
+  },
+  "defaultSeverity": "warning"
+}
