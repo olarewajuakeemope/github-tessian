@@ -13,3 +13,7 @@ export function getRepos (user: string) {
 export function getIssues (user: string, repo: string) {
   return fetchRequest(`/repos/${user}/${repo}/issues`, 'get')
 }
+
+export function getFilteredIssues (user: string, repo: string, filterObj: any) {
+  return fetchRequest(`/repos/${user}/${repo}/issues`, 'get', filterObj)
+}

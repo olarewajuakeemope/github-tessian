@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
-import { getIssues } from 'redux/issue/actions'
+import { getFilteredIssues } from 'redux/issue/actions'
 import AdvancedFilterForm from 'components/User/Issue/AdvancedFilter'
 
 const mapDispatchToProps = {
-  getIssues,
+ getFilteredIssues,
 }
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {

@@ -4,7 +4,7 @@ import './style.css'
 
 interface AdvancedFilterProps {
   handleClose: () => void
-  handleSubmit: () => void
+  getFilteredIssues: (params: any) => void
 }
 
 interface AdvancedFilterState {
@@ -21,7 +21,7 @@ const initialState: any = {
   milestone: '*',
   milestoneNumber: -1,
   sort: 'created',
-  state: 'open',
+  state: 'all',
 }
 
 class AdvancedFilter extends PureComponent<AdvancedFilterProps, AdvancedFilterState> {
@@ -77,6 +77,7 @@ class AdvancedFilter extends PureComponent<AdvancedFilterProps, AdvancedFilterSt
 
   handleSubmit = (e: any) => {
     e.preventDefault()
+    const { handleClose, getFilteredIssues } = this.props
     const { assignee, assigneeValue, creator, direction, labels, mentioned, milestone, milestoneNumber, sort, state } = this.state
     const params: any = {
       direction,
@@ -102,8 +103,8 @@ class AdvancedFilter extends PureComponent<AdvancedFilterProps, AdvancedFilterSt
     if (labels) {
       params.labels = labels.replace(new RegExp(' ', 'g'), '')
     }
-    // tslint:disable-next-line
-    console.log(params)
+    getFilteredIssues(params)
+    handleClose()
   }
 
   render() {

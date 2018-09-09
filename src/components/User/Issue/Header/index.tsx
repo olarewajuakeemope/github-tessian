@@ -5,6 +5,7 @@ import AdvancedFilterForm from 'containers/User/Issue/AdvancedFilter'
 import './style.css'
 
 interface HeaderWrapperPropsInterface {
+  activeRepo: null | string
   goBack: any
   user: string
   issues: Array<null | {}>
@@ -28,7 +29,7 @@ class HeaderWrapper extends PureComponent<HeaderWrapperPropsInterface, HeaderWra
   }
 
   render() {
-    const { goBack, issues, user } = this.props
+    const { activeRepo, goBack, issues, user } = this.props
     const backButton = (
       <span key="backButton" onClick={goBack} className="header__backbutton" />
     )
@@ -56,10 +57,16 @@ class HeaderWrapper extends PureComponent<HeaderWrapperPropsInterface, HeaderWra
       </span>
     )
 
+    let headerComponents = [backButton, userName, filterInput]
+
+    if (activeRepo) {
+      headerComponents = [...headerComponents, advancedFilter]
+    }
+
     return (
       <Fragment>
         {this.state.showAdvancedForm && <AdvancedFilterForm handleClose={this.toggleShowAdvancedForm} />}
-        <Header items={[backButton, userName, filterInput, advancedFilter]} />
+        <Header items={headerComponents} />
       </Fragment>
     )
   }

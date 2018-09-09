@@ -28,6 +28,10 @@ const ACTION_HANDLERS: ActionHandler = {
     isLoadingRepos: false,
     error,
   }),
+  [t.GET_FILTERED_ISSUES_REQUEST]: (state: I.IssueState) => ({
+    ...state,
+    isLoadingIssues: true,
+  }),
   [t.GET_ISSUES_REQUEST]: (state: I.IssueState, { repo, description }: I.GetIssuesRequest) => ({
     ...state,
     activeRepo: repo,

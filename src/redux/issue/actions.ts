@@ -7,3 +7,10 @@ export function getIssues(name: string, description: string) {
     description,
   }
 }
+
+export function getFilteredIssues(filters: any) {
+  return {
+    filters,
+    type: t.GET_FILTERED_ISSUES_REQUEST,
+  }
+}
