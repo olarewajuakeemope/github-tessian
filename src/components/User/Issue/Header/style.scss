@@ -3,10 +3,11 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
-  background-position: center center;
+  background-position: center center; 
   background-repeat: no-repeat;
   background-size: 40px 40px;
-  background-image: url("../../../../images/common/arrow-back-button.svg"); }
+  background-image: url('../../../../images/common/arrow-back-button.svg');
+}
 
 .headerInput__filter {
   display: inline-block;
@@ -14,25 +15,34 @@
   height: 100%;
   color: #fff;
   border-color: #fff;
-  background-image: url("../../../../images/common/funnel.svg");
-  background-position: 5px center;
+  background-image: url('../../../../images/common/funnel.svg');
+  background-position: 5px center; 
   background-repeat: no-repeat;
-  background-size: 20px 30px; }
-  .headerInput__filter::placeholder {
-    color: rgba(255, 255, 255, 0.7); }
+  background-size: 20px 30px;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, .7);
+  }
+}
 
 .filterInput .userSearch__inputWrapper {
-  width: auto; }
+  width: auto;
+}
 
 .header__username, .header__advancedFilter {
-  margin-top: .5%; }
+  margin-top: .5%;
+}
 
 .header__advancedFilter {
   margin-left: 5%;
-  cursor: pointer; }
-  .header__advancedFilter:hover {
-    color: rgba(255, 255, 255, 0.5); }
+  cursor: pointer;
+
+  &:hover {
+    color: rgba(255, 255, 255, .5);
+  }
+}
 
 .header__username,
 .header__backbutton {
-  margin-right: 5%; }
+  margin-right: 5%;
+}

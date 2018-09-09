@@ -1,0 +1,102 @@
+.header_filter-advanced {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  z-index: 2;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($color: #000000, $alpha: .3);
+
+  form {
+    width: 50%;
+    background-color: white;
+    border-radius: 5px;
+
+    input {
+      padding-left: 12px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 5% 0;
+    }
+  }
+
+  .title {
+    border-bottom: 1px solid #cccccc;
+    padding: 1%;
+    background-color: #eeeeee;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+
+    .close {
+      font-size: 200%;
+      margin-right: 3%;
+      cursor: pointer;
+      color: #aaaaaa;
+    }
+  }
+
+  .content {
+    padding: 5%;
+
+    .item {
+      margin-bottom: 5%;
+    }
+
+    .input {
+      width: 50%;
+    }
+
+    .radio_wrapper {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 1%;
+
+      label {
+        width: 95%;
+      }
+
+      input {
+        width: 5%;
+      }
+    }
+
+    .select_wrapper {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 1%;
+      width: 50%;
+      
+      label {
+        width: 50%;
+        margin: 0;
+      }
+      select {
+        height: 70%;
+        width: 30%;
+      }
+    }
+  }
+
+  .footer {
+    border-top: 1px solid #cccccc;
+    padding: 1%;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    .close {
+      background-color: #ccc;
+      border-color: #ccc;
+      margin-right: 3%;
+    }
+  }
+}

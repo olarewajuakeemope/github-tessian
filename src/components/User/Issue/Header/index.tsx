@@ -1,6 +1,7 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, PureComponent } from 'react'
 import Header from 'components/User/Header'
 import Search from 'components/Common/Search'
+import AdvancedFilterForm from 'containers/User/Issue/AdvancedFilter'
 import './style.css'
 
 interface HeaderWrapperPropsInterface {
@@ -9,31 +10,59 @@ interface HeaderWrapperPropsInterface {
   issues: Array<null | {}>
 }
 
-const HeaderWrapper = ({ goBack, issues, user }: HeaderWrapperPropsInterface) => {
-  const backButton = (
-    <span key="backButton" onClick={goBack} className="header__backbutton" />
-  )
+interface HeaderWrapperStateInterface {
+  showAdvancedForm: boolean
+}
 
-  const userName = (
-    <span key="userName" className="header__username">{user}</span>
-  )
+const initialState = {
+  showAdvancedForm: false,
+}
 
-  const filterInput = (
-    <span key="filterInput" className="filterInput">
-      <Search
-        name="issue"
-        className="headerInput__filter"
-        placeholder="Filter issues title"
-        disabled={issues.length < 1}
-      />
-    </span>
-  )
+class HeaderWrapper extends PureComponent<HeaderWrapperPropsInterface, HeaderWrapperStateInterface> {
+  state = initialState
 
-  return (
-    <Fragment>
-      <Header items={[backButton, userName, filterInput]} />
-    </Fragment>
-  )
+  toggleShowAdvancedForm = () => {
+    this.setState(({ showAdvancedForm }) => ({
+      showAdvancedForm: !showAdvancedForm,
+    }))
+  }
+
+  render() {
+    const { goBack, issues, user } = this.props
+    const backButton = (
+      <span key="backButton" onClick={goBack} className="header__backbutton" />
+    )
+
+    const userName = (
+      <span key="userName" className="header__username">{user}</span>
+    )
+
+    const advancedFilter = (
+      <small
+        key="advancedFilter"
+        className="header__advancedFilter"
+        onClick={this.toggleShowAdvancedForm}
+      >Advanced Filter</small>
+    )
+
+    const filterInput = (
+      <span key="filterInput" className="filterInput">
+        <Search
+          name="issue"
+          className="headerInput__filter"
+          placeholder="Filter issues title"
+          disabled={issues.length < 1}
+        />
+      </span>
+    )
+
+    return (
+      <Fragment>
+        {this.state.showAdvancedForm && <AdvancedFilterForm handleClose={this.toggleShowAdvancedForm} />}
+        <Header items={[backButton, userName, filterInput, advancedFilter]} />
+      </Fragment>
+    )
+  }
 }
 
 export default HeaderWrapper
