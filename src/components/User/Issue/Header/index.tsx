@@ -39,11 +39,11 @@ class HeaderWrapper extends PureComponent<HeaderWrapperPropsInterface, HeaderWra
     )
 
     const advancedFilter = (
-      <small
+      <h4
         key="advancedFilter"
         className="header__advancedFilter"
         onClick={this.toggleShowAdvancedForm}
-      >Advanced Filter</small>
+      >More</h4>
     )
 
     const filterInput = (

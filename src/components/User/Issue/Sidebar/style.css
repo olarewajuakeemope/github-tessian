@@ -54,3 +54,14 @@ span.public {
   width: 10%;
 }
 
+
+
+/******************** MEDIA QUERIES **********************/
+
+
+
+@media (max-width: 700px) {
+  .userissues__sidebar > h2 {
+    display: none;
+  }
+}

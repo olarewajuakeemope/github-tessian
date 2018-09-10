@@ -33,3 +33,15 @@
   height: 100%;
   margin: 4px 2px;
 }
+
+
+
+/******************** MEDIA QUERIES **********************/
+
+
+
+@media (max-width: 700px) {
+  .userSearch__input {
+    width: 60%;
+  }
+}

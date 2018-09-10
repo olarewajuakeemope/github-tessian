@@ -20,6 +20,7 @@ const initialState: any = {
   mentioned: '',
   milestone: '*',
   milestoneNumber: -1,
+  since: null,
   sort: 'created',
   state: 'all',
 }
@@ -29,9 +30,15 @@ class AdvancedFilter extends PureComponent<AdvancedFilterProps, AdvancedFilterSt
 
   handleChange = (e: any) => {
     const { name, value } = e.target
-    this.setState({
-      [name]: value,
-    })
+    if (name === 'since') {
+      this.setState({
+        since: (new Date(value)).toISOString(),
+      })
+    } else {
+      this.setState({
+        [name]: value,
+      })
+    }
   }
 
   renderInput = (label: string, name: string, type: string, placeholder: string) => (
@@ -78,7 +85,7 @@ class AdvancedFilter extends PureComponent<AdvancedFilterProps, AdvancedFilterSt
   handleSubmit = (e: any) => {
     e.preventDefault()
     const { handleClose, getFilteredIssues } = this.props
-    const { assignee, assigneeValue, creator, direction, labels, mentioned, milestone, milestoneNumber, sort, state } = this.state
+    const { assignee, assigneeValue, creator, direction, labels, mentioned, milestone, milestoneNumber, since, sort, state } = this.state
     const params: any = {
       direction,
       sort,
@@ -103,6 +110,9 @@ class AdvancedFilter extends PureComponent<AdvancedFilterProps, AdvancedFilterSt
     if (labels) {
       params.labels = labels.replace(new RegExp(' ', 'g'), '')
     }
+    if (since) {
+      params.since = since
+    }
     getFilteredIssues(params)
     handleClose()
   }
@@ -126,6 +136,7 @@ class AdvancedFilter extends PureComponent<AdvancedFilterProps, AdvancedFilterSt
             {this.renderSelectInput('sort', 'Sort By')}
             {this.renderSelectInput('direction', 'Direction of sort')}
             <br />
+            {this.renderInput('Start Date', 'since', 'date', '')}
             {this.renderInput('Issue Creator', 'creator', 'text', 'E.g: eric')}
             {this.renderInput('Mentioned User', 'mentioned', 'text', 'E.g: eric')}
             {this.renderInput('Labels separated by commas', 'labels', 'text', 'E.g: bug,ui,@high')}

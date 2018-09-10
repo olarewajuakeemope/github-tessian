@@ -1,11 +1,11 @@
 .header__backbutton {
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 40px 40px;
+  background-size: 30px 30px;
   background-image: url("../../../../images/common/arrow-back-button.svg"); }
 
 .headerInput__filter {
@@ -36,3 +36,10 @@
 .header__username,
 .header__backbutton {
   margin-right: 5%; }
+
+/******************** MEDIA QUERIES **********************/
+@media (max-width: 700px) {
+  .header__username {
+    display: none; }
+  .header__advancedFilter {
+    margin-top: 5%; } }

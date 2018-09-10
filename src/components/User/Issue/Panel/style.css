@@ -111,6 +111,9 @@
   .userissuesPanelItems__wrapper {
     margin-top: 20%;
   }
+  .repo_description {
+    display: none;
+  }
 }
 
 @media (max-width: 600px) {
