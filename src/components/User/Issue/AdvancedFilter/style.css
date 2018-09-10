@@ -63,6 +63,12 @@
       .header_filter-advanced .content .select_wrapper select {
         height: 70%;
         width: 30%; }
+      @media (max-width: 1000px) {
+        .header_filter-advanced .content .select_wrapper {
+          width: 70%; } }
+      @media (max-width: 700px) {
+        .header_filter-advanced .content .select_wrapper {
+          width: 80%; } }
   .header_filter-advanced .footer {
     border-top: 1px solid #cccccc;
     padding: 1%;

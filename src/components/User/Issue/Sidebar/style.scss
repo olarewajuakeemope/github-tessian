@@ -5,41 +5,53 @@
   margin-top: 3%;
   position: fixed;
   overflow: scroll;
-  border-right: 2px solid #ccc; }
-  .userissues__sidebar > h2 {
+  border-right: 2px solid #ccc;
+  & > h2 {
     padding: 3%;
     width: 100%;
     position: fixed;
     z-index: 1;
     background-color: #ccc;
-    box-shadow: 5px 5px 8px 5px rgba(200, 200, 200, 0.5); }
+    box-shadow: 5px 5px 8px 5px rgba(200, 200, 200, .5);
+  }
   @media (max-width: 700px) {
-    .userissues__sidebar > h2 {
-      display: none; } }
+    & > h2 {
+      display: none;
+    }
+  }
+}
 
 .userissuesSidebarItem__wrapper {
   padding: 38% 0 30% 0;
-  margin-bottom: 10%; }
+  margin-bottom: 10%;
+}
 
 .userissuesSidebar__item {
   padding-left: 5%;
   cursor: pointer;
-  border-bottom: 2px solid #ccc; }
-  .userissuesSidebar__item:hover {
-    background-color: #fafafa; }
-  .userissuesSidebar__item.active {
-    background-color: #eaeaea; }
+  border-bottom: 2px solid #ccc;
+  &:hover {
+    background-color: #fafafa;
+  }
+  &.active {
+    background-color: #eaeaea;
+  }
+}
 
 .repo__name {
   width: 90%;
-  color: #999; }
+  color: #999;
+}
 
 .repo__status {
   width: 30%;
-  color: #3eb8f1; }
+  color: rgb(62, 184, 241);
+}
 
 span.public {
-  color: coral; }
+  color: coral;
+}
 
 .repo__url {
-  width: 10%; }
+  width: 10%;
+}

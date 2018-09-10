@@ -1,8 +1,10 @@
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 *, *:before, *:after {
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
 
 body, html, body div#root {
   margin: 0;
@@ -10,37 +12,44 @@ body, html, body div#root {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  font-family: 'Gotham SSm A', 'Gotham SSm B'; }
+  font-family: 'Gotham SSm A', 'Gotham SSm B';
+}
 
 img {
   user-select: none;
   -webkit-user-drag: none;
-  user-drag: none; }
+  user-drag: none;
+}
 
 button:focus, input:focus, textarea:focus {
   /* remove the blue outline in Chrome */
-  outline: 0; }
+  outline: 0;
+}
 
 button {
   color: inherit;
-  border: 2px solid #3eb8f1;
+  border: 2px solid rgb(62, 184, 241);
   text-align: center;
   padding: 10px 20px;
   text-decoration: none;
   font-size: 15px;
   border-radius: 5px;
-  cursor: pointer; }
-  button:hover:not(:disabled) {
-    background-color: #3eb8f1;
-    color: white; }
-  button:disabled {
+  cursor: pointer;
+  &:hover:not(:disabled) {
+    background-color: rgb(62, 184, 241);
+    color: white;
+  }
+  &:disabled {
     background-color: #ccc;
     border-color: #ccc;
-    cursor: default; }
+    cursor: default;
+  }
+}
 
 a {
   text-decoration: none;
-  color: #3eb8f1; }
+  color: rgb(62, 184, 241);
+}
 
 input, select {
   border: 2px solid #ccc;
@@ -50,16 +59,16 @@ input, select {
   font-size: inherit;
   margin: 0;
   color: inherit;
-  padding: 12px 20px 12px 40px; }
+  padding: 12px 20px 12px 40px;
+}
 
 .loading__background {
   animation: colorchange 500ms linear 0s infinite;
-  height: 20px; }
+  height: 20px;
+}
 
 @keyframes colorchange {
-  0% {
-    background: #eaeaea; }
-  50% {
-    background: #f0f0f0; }
-  100% {
-    background: #eaeaea; } }
+  0%   {background: #eaeaea;}
+  50%  {background: #f0f0f0;}
+  100% {background: #eaeaea;}
+}

@@ -4,10 +4,13 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 10%; }
-  .userissues__wrapper .header__wrapper {
-    box-shadow: none; }
+  margin-top: 10%;
+  .header__wrapper {
+    box-shadow: none;
+  }
+}
 
 .userissues__panelWrapper {
   position: fixed;
-  top: 15%; }
+  top: 15%;
+}
